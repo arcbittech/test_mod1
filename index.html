@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outreach Template Config Modal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .modal {
+            background: #ffffff;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            padding: 32px 40px 24px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .modal-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0;
+        }
+
+        .modal-body {
+            padding: 40px;
+            max-height: calc(90vh - 200px);
+            overflow-y: auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px 24px;
+            margin-bottom: 32px;
+        }
+
+        .form-row.one-col {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .form-group.span-2 {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 400;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            padding: 0 0 12px 0;
+            border: none;
+            border-bottom: 1px solid #d1d5db;
+            font-size: 15px;
+            color: #1f2937;
+            font-family: 'Open Sans', sans-serif;
+            transition: all 0.3s;
+            background: transparent;
+            outline: none;
+            resize: none;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            border-bottom-color: #8b5cf6;
+        }
+
+        input[type="text"]::placeholder,
+        textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0 center;
+            padding-right: 24px;
+        }
+
+        textarea {
+            padding: 12px 0;
+            min-height: 100px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .modal-footer {
+            padding: 24px 40px;
+            border-top: 1px solid #e8e8e8;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            background: #fafafa;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .btn-cancel {
+            background: #ffffff;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-cancel:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+        }
+
+        .btn-save {
+            background: #8b5cf6;
+            color: #ffffff;
+            padding: 12px 40px;
+        }
+
+        .btn-save:hover {
+            background: #7c3aed;
+        }
+
+        /* Scrollbar styling */
+        .modal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: #f9fafb;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 3px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .form-group.span-2 {
+                grid-column: span 1;
+            }
+
+            .modal-body {
+                padding: 24px;
+            }
+
+            .modal-header {
+                padding: 24px;
+            }
+
+            .modal-footer {
+                padding: 20px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <h2>Outreach Template Config</h2>
+        </div>
+        
+        <div class="modal-body">
+            <form id="outreachConfigForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="business_area">Business Area</label>
+                        <select id="business_area" name="business_area" required>
+                            <option value="">Business Area</option>
+                            <option value="orthodontics">Orthodontics</option>
+                            <option value="general_dentistry">General Dentistry</option>
+                            <option value="cosmetic_dentistry">Cosmetic Dentistry</option>
+                            <option value="pediatric_dentistry">Pediatric Dentistry</option>
+                            <option value="oral_surgery">Oral Surgery</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="outreach_type">Outreach Type</label>
+                        <select id="outreach_type" name="outreach_type" required>
+                            <option value="">Outreach Type</option>
+                            <option value="follow_up">Follow Up</option>
+                            <option value="appointment_reminder">Appointment Reminder</option>
+                            <option value="welcome">Welcome</option>
+                            <option value="promotional">Promotional</option>
+                            <option value="feedback_request">Feedback Request</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row one-col">
+                    <div class="form-group">
+                        <label for="call_script">Call Script</label>
+                        <textarea id="call_script" name="call_script" placeholder="Enter call script here..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row one-col">
+                    <div class="form-group">
+                        <label for="sms_template">SMS Template</label>
+                        <textarea id="sms_template" name="sms_template" placeholder="Enter SMS template here..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row one-col">
+                    <div class="form-group">
+                        <label for="email_template">Email Template</label>
+                        <textarea id="email_template" name="email_template" placeholder="Enter email template here..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row one-col">
+                    <div class="form-group">
+                        <label for="mail_template">Mail Template</label>
+                        <textarea id="mail_template" name="mail_template" placeholder="Enter mail template here..." required></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-cancel">Cancel</button>
+            <button type="submit" class="btn btn-save" form="outreachConfigForm">Save</button>
+        </div>
+    </div>
+
+    <script>
+        // Form submission
+        document.getElementById('outreachConfigForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                business_area: document.getElementById('business_area').value,
+                outreach_type: document.getElementById('outreach_type').value,
+                call_script: document.getElementById('call_script').value,
+                sms_template: document.getElementById('sms_template').value,
+                email_template: document.getElementById('email_template').value,
+                mail_template: document.getElementById('mail_template').value
+            };
+            
+            console.log('Outreach Config Data:', formData);
+            alert('Outreach template configuration saved successfully!');
+        });
+
+        // Cancel button
+        document.querySelector('.btn-cancel').addEventListener('click', () => {
+            if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
+                document.getElementById('outreachConfigForm').reset();
+                console.log('Form cancelled');
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelector('.btn-cancel').click();
+            }
+        });
+    </script>
+</body>
+</html>
