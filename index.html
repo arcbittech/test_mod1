@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Office Details - Medical Software</title>
+    <title>Group Details - Medical Software</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -172,21 +172,23 @@
             color: #721c24;
         }
 
-        /* Golden Record Badge */
-        .golden-record-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
+        .risk-low {
+            background: #d1f2eb;
+            color: #0a6c53;
         }
 
-        /* Access Badge */
-        .access-badge {
+        .risk-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .risk-high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Yes/No Badge */
+        .yn-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -196,12 +198,12 @@
             font-weight: 600;
         }
 
-        .access-yes {
+        .yn-yes {
             background: #d1f2eb;
             color: #0a6c53;
         }
 
-        .access-no {
+        .yn-no {
             background: #f8d7da;
             color: #721c24;
         }
@@ -252,265 +254,46 @@
             background: #229954;
         }
 
-        /* Office Hours Table */
-        .hours-table {
-            width: 100%;
+        /* Alert Box */
+        .alert-box {
             background: white;
+            padding: 20px;
             border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #e9ecef;
-        }
-
-        .hours-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .hours-table th {
-            background: #f8f9fa;
-            padding: 12px;
-            text-align: left;
-            font-size: 11px;
-            font-weight: 600;
-            color: #495057;
-            text-transform: uppercase;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        .hours-table td {
-            padding: 12px;
-            font-size: 13px;
-            color: #2c3e50;
-            border-bottom: 1px solid #f8f9fa;
-        }
-
-        /* Contract Table */
-        .contract-table {
-            width: 100%;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #e9ecef;
-        }
-
-        .contract-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .contract-table th {
-            background: #f8f9fa;
-            padding: 12px;
-            text-align: left;
-            font-size: 11px;
-            font-weight: 600;
-            color: #495057;
-            text-transform: uppercase;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        .contract-table td {
-            padding: 12px;
-            font-size: 13px;
-            color: #2c3e50;
-            border-bottom: 1px solid #f8f9fa;
-        }
-
-        /* Language Tags */
-        .language-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .language-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            background: #e3f2fd;
-            color: #1565c0;
-        }
-
-        /* Action Code Tags */
-        .action-code-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .action-code-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            background: #d1f2eb;
-            color: #0a6c53;
-        }
-
-        /* Provider List */
-        .provider-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .provider-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s;
-        }
-
-        .provider-item:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .provider-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .provider-icon {
-            width: 40px;
-            height: 40px;
-            background: #e3f2fd;
-            color: #3498db;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .provider-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 4px;
-        }
-
-        .provider-specialty {
-            font-size: 12px;
-            color: #6c757d;
-            margin-bottom: 2px;
-        }
-
-        .provider-npi {
-            font-size: 11px;
-            color: #95a5a6;
-        }
-
-        /* Contact List */
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .contact-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
             border: 1px solid #e9ecef;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: #fce4ec;
-            color: #e91e63;
+        .alert-icon {
+            width: 50px;
+            height: 50px;
+            background: #fee;
+            color: #e74c3c;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 24px;
+            flex-shrink: 0;
         }
 
-        .contact-name {
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-title {
             font-size: 14px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 4px;
-        }
-
-        .contact-role {
-            font-size: 12px;
-            color: #6c757d;
-            margin-bottom: 2px;
-        }
-
-        .contact-email {
-            font-size: 11px;
-            color: #3498db;
-        }
-
-        /* Event List */
-        .event-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .event-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-            border-left: 4px solid #3498db;
-        }
-
-        .event-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: #2c3e50;
+            font-weight: 700;
+            color: #e74c3c;
             margin-bottom: 6px;
         }
 
-        .event-date {
-            font-size: 12px;
-            color: #6c757d;
-        }
-
-        /* Claims Stats */
-        .claims-stats {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-            text-align: center;
-        }
-
-        .claims-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-
-        .claims-label {
-            font-size: 14px;
-            color: #6c757d;
-            margin-bottom: 15px;
-        }
-
-        .claims-date {
-            font-size: 12px;
-            color: #95a5a6;
+        .alert-message {
+            font-size: 13px;
+            color: #495057;
+            line-height: 1.6;
         }
 
         /* Notes Box */
@@ -528,17 +311,106 @@
             line-height: 1.8;
         }
 
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 40px;
-            color: #95a5a6;
+        /* TAT Grid */
+        .tat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
         }
 
-        .empty-state i {
-            font-size: 48px;
-            margin-bottom: 15px;
-            display: block;
+        .tat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #3498db;
+        }
+
+        .tat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .tat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        /* Team Member Card */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .team-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .team-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 15px;
+        }
+
+        .team-role {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .team-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Template Badge */
+        .template-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            background: #e3f2fd;
+            color: #1565c0;
         }
 
         /* Responsive */
@@ -552,6 +424,14 @@
             .info-grid {
                 grid-template-columns: 1fr;
             }
+
+            .tat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -559,162 +439,135 @@
     <div class="container">
         <!-- Page Header -->
         <div class="page-header">
-            <h1><i class="fas fa-building"></i> Office Details</h1>
+            <h1><i class="fas fa-users"></i> Group Details</h1>
             <div class="header-meta">
                 <div class="header-meta-item">
-                    <span class="header-meta-label">Office Number</span>
-                    <span class="header-meta-value">OFF-789</span>
+                    <span class="header-meta-label">Group Number</span>
+                    <span class="header-meta-value">12345</span>
                 </div>
                 <div class="header-meta-item">
-                    <span class="header-meta-label">Office Name</span>
-                    <span class="header-meta-value">Downtown Health Clinic</span>
+                    <span class="header-meta-label">Group Name</span>
+                    <span class="header-meta-value">Liberty Health Plan</span>
                 </div>
                 <div class="header-meta-item">
-                    <span class="header-meta-label">DCM Status</span>
-                    <span class="header-meta-value">Active</span>
+                    <span class="header-meta-label">Line of Business</span>
+                    <span class="header-meta-value">HMO</span>
                 </div>
                 <div class="header-meta-item">
-                    <span class="header-meta-label">Golden Record</span>
-                    <span class="header-meta-value">Yes</span>
+                    <span class="header-meta-label">Risk Type</span>
+                    <span class="header-meta-value">Low</span>
                 </div>
             </div>
         </div>
 
         <!-- Content Area -->
         <div class="content-area">
-            <!-- Office Information -->
+            <!-- Group Information -->
             <div class="detail-section">
                 <div class="section-header">
                     <div class="section-header-left">
                         <div class="section-icon">
-                            <i class="fas fa-building"></i>
+                            <i class="fas fa-id-card"></i>
                         </div>
                         <div class="section-title">
-                            <h3>Office Information</h3>
-                            <p>Basic office details and identification</p>
+                            <h3>Group Information</h3>
+                            <p>Basic group identification and details</p>
                         </div>
                     </div>
                     <div class="action-buttons">
                         <button class="btn-action btn-primary">
-                            <i class="fas fa-edit"></i> Edit Office
+                            <i class="fas fa-edit"></i> Edit Group
                         </button>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="info-item">
-                        <div class="info-label"><i class="fas fa-hashtag"></i> Office Number</div>
-                        <div class="info-value">OFF-789</div>
+                        <div class="info-label"><i class="fas fa-hashtag"></i> Group Number</div>
+                        <div class="info-value">12345</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-label"><i class="fas fa-clinic-medical"></i> Office Name</div>
-                        <div class="info-value">Downtown Health Clinic</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-id-card"></i> Office NPI</div>
-                        <div class="info-value">1456789123</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-id-badge"></i> Office Medicaid ID</div>
-                        <div class="info-value">MED123456</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-check-circle"></i> DCM Status</div>
-                        <div class="info-value">
-                            <span class="status-badge status-active">
-                                <i class="fas fa-check-circle"></i> Active
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-star"></i> Golden Record</div>
-                        <div class="info-value">
-                            <span class="golden-record-badge">
-                                <i class="fas fa-crown"></i> Golden Record
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-network-wired"></i> National DSO</div>
-                        <div class="info-value">CareWell Network</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-users"></i> Ages Seen</div>
-                        <div class="info-value">All Ages</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-user-tie"></i> PR Representative</div>
-                        <div class="info-value">Robert Brown</div>
+                        <div class="info-label"><i class="fas fa-building"></i> Group Name</div>
+                        <div class="info-value">Liberty Health Plan</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Location Details -->
+            <!-- Group Alert -->
+            <div class="detail-section">
+                <div class="alert-box">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">Group Alert</div>
+                        <div class="alert-message">High-volume grievance group</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Demographics -->
             <div class="detail-section">
                 <div class="section-header">
                     <div class="section-header-left">
                         <div class="section-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-chart-pie"></i>
                         </div>
                         <div class="section-title">
-                            <h3>Location Details</h3>
-                            <p>Office address and location information</p>
+                            <h3>Group Demographics</h3>
+                            <p>Line of business and product information</p>
                         </div>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="info-item">
-                        <div class="info-label"><i class="fas fa-map-marker-alt"></i> Street Address</div>
-                        <div class="info-value">123 Main Street</div>
+                        <div class="info-label"><i class="fas fa-code"></i> Line of Business Code</div>
+                        <div class="info-value">HMO</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-label"><i class="fas fa-flag"></i> State</div>
-                        <div class="info-value">CA</div>
+                        <div class="info-label"><i class="fas fa-tag"></i> Line of Business Name</div>
+                        <div class="info-value">Health Maintenance Org</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-label"><i class="fas fa-mail-bulk"></i> Zip Code</div>
-                        <div class="info-value">90001</div>
+                        <div class="info-label"><i class="fas fa-box"></i> Product Type Name</div>
+                        <div class="info-value">Medical</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-label"><i class="fas fa-city"></i> County</div>
-                        <div class="info-value">Los Angeles</div>
+                        <div class="info-label"><i class="fas fa-layer-group"></i> Product Line Code Name</div>
+                        <div class="info-value">Commercial</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-file-alt"></i> Base Plan Name</div>
+                        <div class="info-value">Base Gold Plan</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-shield-alt"></i> Coverage Code Name</div>
+                        <div class="info-value">COV-2025</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Contact Information -->
+            <!-- Account Management -->
             <div class="detail-section">
                 <div class="section-header">
                     <div class="section-header-left">
                         <div class="section-icon">
-                            <i class="fas fa-address-book"></i>
+                            <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="section-title">
-                            <h3>Primary Contact Information</h3>
-                            <p>Main office contact details</p>
+                            <h3>Account Management</h3>
+                            <p>Account manager and key contacts</p>
                         </div>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="info-item">
-                        <div class="info-label"><i class="fas fa-user"></i> Contact Name</div>
-                        <div class="info-value">Jane Smith</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-phone"></i> Contact Phone</div>
-                        <div class="info-value">555-123-4567</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-fax"></i> Contact Fax</div>
-                        <div class="info-value">555-987-6543</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-envelope"></i> Contact Email</div>
-                        <div class="info-value">contact@downtownhealth.com</div>
+                        <div class="info-label"><i class="fas fa-user-tie"></i> Account Manager</div>
+                        <div class="info-value">John Smith</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Additional Contacts -->
+            <!-- GA Team Information -->
             <div class="detail-section">
                 <div class="section-header">
                     <div class="section-header-left">
@@ -722,35 +575,152 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="section-title">
-                            <h3>Additional Contacts</h3>
-                            <p>Other office personnel and contacts</p>
+                            <h3>GA Team Information</h3>
+                            <p>Grievance and appeals team structure</p>
                         </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-success">
-                            <i class="fas fa-plus"></i> Add Contact
-                        </button>
                     </div>
                 </div>
-                <div class="contact-list">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-user-tie"></i>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-icon">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <div>
-                            <div class="contact-name">Tom Wilson</div>
-                            <div class="contact-role">
-                                <i class="fas fa-briefcase"></i> Billing Manager
-                            </div>
-                            <div class="contact-email">
-                                <i class="fas fa-envelope"></i> tom.wilson@downtownhealth.com
-                            </div>
+                        <div class="team-role">GA Team</div>
+                        <div class="team-name">Southwest GA Team</div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="team-role">GA Supervisor</div>
+                        <div class="team-name">Jane Doe</div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <div class="team-role">GA Manager</div>
+                        <div class="team-name">Robert White</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QM Scorecard Information -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>QM Scorecard Information</h3>
+                            <p>Quality management scorecard details</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-flag"></i> QM Scorecard State</div>
+                        <div class="info-value">CA</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-briefcase"></i> QM Scorecard LOB</div>
+                        <div class="info-value">Commercial</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GA Line of Business -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>GA Line of Business</h3>
+                            <p>Primary and secondary LOB assignments</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-star"></i> GA Primary LOB</div>
+                        <div class="info-value">Medical</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-star-half-alt"></i> GA Secondary LOB</div>
+                        <div class="info-value">Dental</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LDP Delegation Settings -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>LDP Delegation Settings</h3>
+                            <p>Local delegation permissions and configuration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-clipboard-check"></i> LDP Delegated Grievances</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-no">
+                                <i class="fas fa-times-circle"></i> No
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-clipboard-list"></i> LDP Delegated Appeals</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-yes">
+                                <i class="fas fa-check-circle"></i> Yes
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-phone-volume"></i> Verbal Grievance By LDP</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-yes">
+                                <i class="fas fa-check-circle"></i> Yes
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-phone"></i> Verbal Appeal By LDP</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-no">
+                                <i class="fas fa-times-circle"></i> No
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-network-wired"></i> LDP Delegated INN PDR</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-no">
+                                <i class="fas fa-times-circle"></i> No
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-external-link-alt"></i> LDP Delegated OON PDR</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-no">
+                                <i class="fas fa-times-circle"></i> No
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Office Hours -->
+            <!-- Turnaround Time (TAT) Standards -->
             <div class="detail-section">
                 <div class="section-header">
                     <div class="section-header-left">
@@ -758,285 +728,64 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="section-title">
-                            <h3>Office Hours</h3>
-                            <p>Operating hours by day of the week</p>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-primary">
-                            <i class="fas fa-edit"></i> Edit Hours
-                        </button>
-                    </div>
-                </div>
-                <div class="hours-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th><i class="fas fa-calendar-day"></i> Day of Week</th>
-                                <th><i class="fas fa-clock"></i> Operating Hours</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Monday</strong></td>
-                                <td>9:00 AM - 5:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tuesday</strong></td>
-                                <td>9:00 AM - 5:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Wednesday</strong></td>
-                                <td>9:00 AM - 5:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Thursday</strong></td>
-                                <td>9:00 AM - 5:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Friday</strong></td>
-                                <td>9:00 AM - 4:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Saturday</strong></td>
-                                <td>Closed</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Sunday</strong></td>
-                                <td>Closed</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Accessibility & Transportation -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-wheelchair"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Accessibility & Transportation</h3>
-                            <p>Accessibility features and public transport options</p>
+                            <h3>Turnaround Time (TAT) Standards</h3>
+                            <p>Processing time requirements and deadlines</p>
                         </div>
                     </div>
                 </div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-wheelchair"></i> Wheelchair Access</div>
-                        <div class="info-value">
-                            <span class="access-badge access-yes">
-                                <i class="fas fa-check-circle"></i> Available
-                            </span>
+                <div class="tat-grid">
+                    <div class="tat-card">
+                        <div class="tat-label">
+                            <i class="fas fa-envelope-open-text"></i> Standard Grievance Ack TAT
                         </div>
+                        <div class="tat-value">5 days</div>
                     </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-bus"></i> Public Transportation</div>
-                        <div class="info-value">Metro line stop within 200m</div>
+                    <div class="tat-card">
+                        <div class="tat-label">
+                            <i class="fas fa-envelope"></i> Standard Appeal Ack TAT
+                        </div>
+                        <div class="tat-value">2 days</div>
+                    </div>
+                    <div class="tat-card">
+                        <div class="tat-label">
+                            <i class="fas fa-bolt"></i> Expedited GA TAT
+                        </div>
+                        <div class="tat-value">24 hours</div>
+                    </div>
+                    <div class="tat-card">
+                        <div class="tat-label">
+                            <i class="fas fa-check-double"></i> Grievance Resolution TAT
+                        </div>
+                        <div class="tat-value">30 days</div>
+                    </div>
+                    <div class="tat-card">
+                        <div class="tat-label">
+                            <i class="fas fa-gavel"></i> Appeal Resolution TAT
+                        </div>
+                        <div class="tat-value">45 days</div>
+                    </div>
+                    <div class="tat-card">
+                        <div class="tat-label">
+                            <i class="fas fa-desktop"></i> PDR Electronic Ack Ltr TAT
+                        </div>
+                        <div class="tat-value">3 days</div>
+                    </div>
+                    <div class="tat-card">
+                        <div class="tat-label">
+                            <i class="fas fa-mail-bulk"></i> PDR Mail Ack Ltr TAT
+                        </div>
+                        <div class="tat-value">5 days</div>
+                    </div>
+                    <div class="tat-card">
+                        <div class="tat-label">
+                            <i class="fas fa-clipboard-check"></i> PDR Resolution TAT
+                        </div>
+                        <div class="tat-value">30 days</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Special Arrangements -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Special Arrangements</h3>
-                            <p>Special accommodations and services</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="notes-box">
-                    <div class="notes-content">
-                        <i class="fas fa-star" style="color: #f39c12;"></i>
-                        Wheelchair ramp and ASL interpreter available
-                    </div>
-                </div>
-            </div>
-
-            <!-- Languages Supported -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Languages Supported</h3>
-                            <p>Languages spoken at this office</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="language-tags">
-                    <span class="language-tag">
-                        <i class="fas fa-globe"></i> English
-                    </span>
-                    <span class="language-tag">
-                        <i class="fas fa-globe"></i> Spanish
-                    </span>
-                </div>
-            </div>
-
-            <!-- Action Codes -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-tags"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Action Codes</h3>
-                            <p>Office status and action indicators</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="action-code-tags">
-                    <span class="action-code-tag">
-                        <i class="fas fa-check-circle"></i> ACTIVE
-                    </span>
-                    <span class="action-code-tag">
-                        <i class="fas fa-certificate"></i> CREDENTIALED
-                    </span>
-                </div>
-            </div>
-
-            <!-- Audit Information -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-clipboard-check"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Audit Information</h3>
-                            <p>Last audit and compliance details</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-calendar-check"></i> Last On-Site Audit</div>
-                        <div class="info-value">09/15/2024</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contracts -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Contracts</h3>
-                            <p>Active and historical contracts</p>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-success">
-                            <i class="fas fa-plus"></i> Add Contract
-                        </button>
-                    </div>
-                </div>
-                <div class="contract-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th><i class="fas fa-hashtag"></i> Contract ID</th>
-                                <th><i class="fas fa-info-circle"></i> Status</th>
-                                <th><i class="fas fa-calendar-day"></i> Effective Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>CON-001</td>
-                                <td>
-                                    <span class="status-badge status-active">
-                                        <i class="fas fa-check-circle"></i> Active
-                                    </span>
-                                </td>
-                                <td>01/01/2023</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Office Providers -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Office Providers</h3>
-                            <p>Healthcare providers at this location</p>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-success">
-                            <i class="fas fa-plus"></i> Add Provider
-                        </button>
-                    </div>
-                </div>
-                <div class="provider-list">
-                    <div class="provider-item">
-                        <div class="provider-info">
-                            <div class="provider-icon">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <div>
-                                <div class="provider-name">Dr. Maria Lopez</div>
-                                <div class="provider-specialty">
-                                    <i class="fas fa-stethoscope"></i> Pediatrics
-                                </div>
-                                <div class="provider-npi">
-                                    <i class="fas fa-id-card"></i> NPI: 1987654321
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Claims History -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Claims History</h3>
-                            <p>Office claims statistics and history</p>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-primary">
-                            <i class="fas fa-eye"></i> View All Claims
-                        </button>
-                    </div>
-                </div>
-                <div class="claims-stats">
-                    <div class="claims-number">240</div>
-                    <div class="claims-label">
-                        <i class="fas fa-file-invoice"></i> Total Claims Processed
-                    </div>
-                    <div class="claims-date">
-                        <i class="fas fa-clock"></i> Last Claim Date: 09/10/2025
-                    </div>
-                </div>
-            </div>
-
-            <!-- Office Events -->
+            <!-- Filing Deadlines -->
             <div class="detail-section">
                 <div class="section-header">
                     <div class="section-header-left">
@@ -1044,24 +793,241 @@
                             <i class="fas fa-calendar-alt"></i>
                         </div>
                         <div class="section-title">
-                            <h3>Office Events</h3>
-                            <p>Upcoming and scheduled events</p>
+                            <h3>Filing Deadlines</h3>
+                            <p>Time limits for filing grievances and appeals</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-calendar-day"></i> Days to File Appeal</div>
+                        <div class="info-value">60 days</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-calendar-week"></i> Days to File Grievance</div>
+                        <div class="info-value">180 days</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template Series -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Template Series</h3>
+                            <p>Document template assignments</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-file-invoice"></i> Grievance Template Series</div>
+                        <div class="info-value">
+                            <span class="template-badge">
+                                <i class="fas fa-file-alt"></i> GRV-TEMP-001
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-file-contract"></i> Appeal Template Series</div>
+                        <div class="info-value">
+                            <span class="template-badge">
+                                <i class="fas fa-file-alt"></i> APL-TEMP-001
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-file-medical"></i> PDR Template Series</div>
+                        <div class="info-value">
+                            <span class="template-badge">
+                                <i class="fas fa-file-alt"></i> PDR-TEMP-001
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clinical & Process Guidelines -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-book-medical"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Clinical & Process Guidelines</h3>
+                            <p>Clinical criteria and process protocols</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-book"></i> Clinical Criteria Guidelines</div>
+                        <div class="info-value">Clinical Guideline Reference 2025</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-clipboard-list"></i> PRG Type</div>
+                        <div class="info-value">Medical Necessity</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-exclamation-triangle"></i> Untimely GA Process</div>
+                        <div class="info-value">Follow standard review protocol</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Properties -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Group Properties</h3>
+                            <p>Configuration and operational settings</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-exchange-alt"></i> Rollover Utilization Between Groups</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-no">
+                                <i class="fas fa-times-circle"></i> No
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-exclamation-triangle"></i> Risk Type</div>
+                        <div class="info-value">
+                            <span class="status-badge risk-low">
+                                <i class="fas fa-check-circle"></i> Low
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-user-md"></i> PCP Assignment Required</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-yes">
+                                <i class="fas fa-check-circle"></i> Yes
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-calendar-check"></i> PCP Effective Rule</div>
+                        <div class="info-value">Effective on enrollment date</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-phone-alt"></i> LDP Toll-Free Number</div>
+                        <div class="info-value">1-800-555-9999</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-globe"></i> Directory on Website</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-yes">
+                                <i class="fas fa-check-circle"></i> Yes
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-link"></i> Custom LDP Portal</div>
+                        <div class="info-value">
+                            <a href="https://ldp.libertyhealth.com" target="_blank" style="color: #3498db; text-decoration: none;">
+                                <i class="fas fa-external-link-alt"></i> ldp.libertyhealth.com
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-id-card"></i> ID Card Fulfillment</div>
+                        <div class="info-value">Automated</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-file-pdf"></i> EOC Fulfillment</div>
+                        <div class="info-value">Printed</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-check-circle"></i> Pre-Auth Required</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-yes">
+                                <i class="fas fa-check-circle"></i> Yes
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-file-medical-alt"></i> Referral Required</div>
+                        <div class="info-value">
+                            <span class="yn-badge yn-yes">
+                                <i class="fas fa-check-circle"></i> Yes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Access Standards -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Access Standards</h3>
+                            <p>Geographic and time-based access requirements</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-user-md"></i> GP Access Standard</div>
+                        <div class="info-value">Within 30 miles</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-hospital"></i> Specialty Access Standard</div>
+                        <div class="info-value">Within 60 miles</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-clock"></i> In-Office Wait Time Standard</div>
+                        <div class="info-value">30 minutes</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-calendar-plus"></i> Appointment Scheduling Standard</div>
+                        <div class="info-value">7 days</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-bus"></i> Transportation Vendor</div>
+                        <div class="info-value">Liberty Transport</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Group Notes</h3>
+                            <p>Important notes and instructions</p>
                         </div>
                     </div>
                     <div class="action-buttons">
-                        <button class="btn-action btn-success">
-                            <i class="fas fa-plus"></i> Add Event
+                        <button class="btn-action btn-primary">
+                            <i class="fas fa-edit"></i> Edit Notes
                         </button>
                     </div>
                 </div>
-                <div class="event-list">
-                    <div class="event-item">
-                        <div class="event-name">
-                            <i class="fas fa-syringe"></i> Flu Shot Clinic
-                        </div>
-                        <div class="event-date">
-                            <i class="fas fa-calendar-day"></i> October 1, 2025
-                        </div>
+                <div class="notes-box">
+                    <div class="notes-content">
+                        <i class="fas fa-info-circle" style="color: #3498db;"></i>
+                        Ensure validation before processing grievances.
                     </div>
                 </div>
             </div>
