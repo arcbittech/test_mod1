@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Requirement Configuration</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Member Details - Medical Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -16,597 +15,1054 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background: #f5f7fa;
             padding: 20px;
         }
 
-        .modal {
-            background: #ffffff;
-            border-radius: 16px;
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        .container {
+            max-width: 1820px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .modal-header {
-            padding: 32px 40px 24px;
-            border-bottom: 1px solid #e8e8e8;
+        /* Header */
+        .page-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .modal-header h2 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 8px;
+        .page-header h1 {
+            font-size: 20px;
+            font-weight: 600;
         }
 
-        .modal-subtitle {
-            font-size: 15px;
-            color: #6b7280;
-            font-weight: 400;
+        .header-meta {
+            display: flex;
+            gap: 30px;
+            font-size: 13px;
         }
 
-        .modal-body {
-            padding: 40px;
-            max-height: calc(90vh - 200px);
-            overflow-y: auto;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px 24px;
-            margin-bottom: 32px;
-        }
-
-        .form-row.one-col {
-            grid-template-columns: 1fr;
-        }
-
-        .form-group {
+        .header-meta-item {
             display: flex;
             flex-direction: column;
-            position: relative;
+            gap: 4px;
         }
 
-        .form-group.span-2 {
-            grid-column: span 2;
+        .header-meta-label {
+            opacity: 0.8;
+            font-size: 11px;
         }
 
-        label {
-            font-size: 14px;
-            font-weight: 400;
-            color: #6b7280;
-            margin-bottom: 8px;
+        .header-meta-value {
+            font-weight: 600;
         }
 
-        input[type="text"],
-        select {
-            padding: 0 0 12px 0;
-            border: none;
-            border-bottom: 1px solid #d1d5db;
-            font-size: 15px;
-            color: #1f2937;
-            font-family: 'Open Sans', sans-serif;
-            transition: all 0.3s;
-            background: transparent;
-            outline: none;
+        /* Content Area */
+        .content-area {
+            padding: 30px;
         }
 
-        input[type="text"]:focus,
-        select:focus,
-        .multi-select.active {
-            border-bottom-color: #8b5cf6;
+        /* Detail Sections */
+        .detail-section {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
         }
 
-        input[type="text"]::placeholder {
-            color: #9ca3af;
-        }
-
-        select {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0 center;
-            padding-right: 24px;
-        }
-
-        /* Multi-select styles */
-        .multi-select-wrapper {
-            position: relative;
-        }
-
-        .multi-select {
-            border-bottom: 1px solid #d1d5db;
-            padding: 0 0 12px 0;
-            min-height: 36px;
+        .section-header {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
+            justify-content: space-between;
             align-items: center;
-            background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0 center;
-            padding-right: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
         }
 
-        .multi-select-placeholder {
-            color: #9ca3af;
-            font-size: 15px;
+        .section-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .tag {
-            background: #f3f4f6;
-            color: #374151;
-            padding: 4px 10px;
-            border-radius: 6px;
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: #e3f2fd;
+            color: #3498db;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .section-title h3 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .section-title p {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .info-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-label i {
             font-size: 13px;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        /* Status Badge */
+        .status-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-weight: 500;
-        }
-
-        .tag-close {
-            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
             font-weight: 600;
-            color: #9ca3af;
-            font-size: 16px;
-            line-height: 1;
         }
 
-        .tag-close:hover {
-            color: #6b7280;
+        .status-active {
+            background: #d1f2eb;
+            color: #0a6c53;
         }
 
-        .dropdown-options {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
+        .status-inactive {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Permission Badge */
+        .permission-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .permission-yes {
+            background: #d1f2eb;
+            color: #0a6c53;
+        }
+
+        .permission-no {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Enrollment Table */
+        .enrollment-table {
+            width: 100%;
+            background: white;
             border-radius: 8px;
-            margin-top: 8px;
-            max-height: 240px;
-            overflow-y: auto;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            z-index: 10;
-            display: none;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
         }
 
-        .dropdown-options.show {
-            display: block;
+        .enrollment-table table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .dropdown-option {
-            padding: 12px 16px;
-            cursor: pointer;
-            font-size: 14px;
-            color: #374151;
-            transition: background 0.2s;
+        .enrollment-table th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            color: #495057;
+            text-transform: uppercase;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .enrollment-table td {
+            padding: 12px;
+            font-size: 13px;
+            color: #2c3e50;
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        /* Benefit Coverage */
+        .benefit-coverage {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .benefit-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .benefit-covered {
+            background: #d1f2eb;
+            color: #0a6c53;
+        }
+
+        .benefit-not-covered {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Risk Score Card */
+        .risk-score-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .risk-score-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .risk-score-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #27ae60, #f39c12, #e74c3c);
+        }
+
+        .risk-score-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
-        .dropdown-option:hover {
-            background: #f9fafb;
+        .risk-score-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
         }
 
-        .dropdown-option input[type="checkbox"] {
-            margin-right: 10px;
-            cursor: pointer;
-            width: 16px;
-            height: 16px;
+        .risk-score-status {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
         }
 
-        .dropdown-option label {
-            margin: 0;
-            cursor: pointer;
-            color: #374151;
+        .risk-low {
+            background: #d1f2eb;
+            color: #0a6c53;
         }
 
-        .modal-footer {
-            padding: 24px 40px;
-            border-top: 1px solid #e8e8e8;
+        .risk-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .risk-high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Provider List */
+        .provider-list {
             display: flex;
-            justify-content: flex-end;
+            flex-direction: column;
             gap: 12px;
-            background: #fafafa;
         }
 
-        .btn {
-            padding: 12px 32px;
+        .provider-item {
+            background: white;
+            padding: 15px;
             border-radius: 8px;
-            font-size: 15px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
+            border: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .provider-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .provider-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .provider-icon {
+            width: 40px;
+            height: 40px;
+            background: #e3f2fd;
+            color: #3498db;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .provider-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .provider-specialty {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        /* Family Members */
+        .family-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .family-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .family-icon {
+            width: 40px;
+            height: 40px;
+            background: #fce4ec;
+            color: #e91e63;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .family-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .family-relation {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        /* Notes Section */
+        .notes-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            border: 1px solid #e9ecef;
+        }
+
+        .notes-content {
+            font-size: 13px;
+            color: #495057;
+            line-height: 1.8;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-action {
+            padding: 8px 16px;
             border: none;
-            font-family: 'Open Sans', sans-serif;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
         }
 
-        .btn-cancel {
-            background: #ffffff;
-            color: #374151;
-            border: 1px solid #d1d5db;
+        .btn-primary {
+            background: #3498db;
+            color: white;
         }
 
-        .btn-cancel:hover {
-            background: #f9fafb;
-            border-color: #9ca3af;
+        .btn-primary:hover {
+            background: #2980b9;
         }
 
-        .btn-save {
-            background: #8b5cf6;
-            color: #ffffff;
-            padding: 12px 40px;
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
         }
 
-        .btn-save:hover {
-            background: #7c3aed;
+        .btn-secondary:hover {
+            background: #7f8c8d;
         }
 
-        /* Scrollbar styling */
-        .modal-body::-webkit-scrollbar,
-        .dropdown-options::-webkit-scrollbar {
-            width: 6px;
+        .btn-success {
+            background: #27ae60;
+            color: white;
         }
 
-        .modal-body::-webkit-scrollbar-track,
-        .dropdown-options::-webkit-scrollbar-track {
-            background: #f9fafb;
+        .btn-success:hover {
+            background: #229954;
         }
 
-        .modal-body::-webkit-scrollbar-thumb,
-        .dropdown-options::-webkit-scrollbar-thumb {
-            background: #d1d5db;
-            border-radius: 3px;
-        }
-
-        .modal-body::-webkit-scrollbar-thumb:hover,
-        .dropdown-options::-webkit-scrollbar-thumb:hover {
-            background: #9ca3af;
-        }
-
-        .hidden {
-            display: none;
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .container {
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 768px) {
-            .form-row {
+            .info-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
             }
 
-            .form-group.span-2 {
-                grid-column: span 1;
-            }
-
-            .modal-body {
-                padding: 24px;
-            }
-
-            .modal-header {
-                padding: 24px;
-            }
-
-            .modal-footer {
-                padding: 20px 24px;
+            .risk-score-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="modal">
-        <div class="modal-header">
-            <h2>Document Requirement Configuration</h2>
-            <p class="modal-subtitle">Configure required and optional documents for case types</p>
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1><i class="fas fa-user-circle"></i> Member Details</h1>
+            <div class="header-meta">
+                <div class="header-meta-item">
+                    <span class="header-meta-label">Member Number</span>
+                    <span class="header-meta-value">MBR123456</span>
+                </div>
+                <div class="header-meta-item">
+                    <span class="header-meta-label">Member Name</span>
+                    <span class="header-meta-value">John Doe</span>
+                </div>
+                <div class="header-meta-item">
+                    <span class="header-meta-label">APD Status</span>
+                    <span class="header-meta-value">Active</span>
+                </div>
+                <div class="header-meta-item">
+                    <span class="header-meta-label">Special Needs</span>
+                    <span class="header-meta-value">Yes</span>
+                </div>
+            </div>
         </div>
-        
-        <div class="modal-body">
-            <form id="docRequirementForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="case_type">Case Type</label>
-                        <select id="case_type" name="case_type" required>
-                            <option value="">Case Type</option>
-                            <option value="appeal">Appeal</option>
-                            <option value="grievance">Grievance</option>
-                        </select>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Personal Information -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Personal Information</h3>
+                            <p>Member demographic and identification details</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="case_category">Case Category</label>
-                        <select id="case_category" name="case_category" required>
-                            <option value="">Case Category</option>
-                        </select>
+                    <div class="action-buttons">
+                        <button class="btn-action btn-primary">
+                            <i class="fas fa-edit"></i> Edit Member
+                        </button>
                     </div>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="source_type">Source Type</label>
-                        <select id="source_type" name="source_type" required>
-                            <option value="">Source Type</option>
-                            <option value="phone">Phone</option>
-                            <option value="email">Email</option>
-                            <option value="mail">Mail</option>
-                            <option value="fax">Fax</option>
-                            <option value="portal">Portal</option>
-                            <option value="in_person">In Person</option>
-                        </select>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-hashtag"></i> Member Number</div>
+                        <div class="info-value">MBR123456</div>
                     </div>
-                    <div class="form-group">
-                        <label for="entity_type">Entity Type</label>
-                        <select id="entity_type" name="entity_type" required>
-                            <option value="">Entity Type</option>
-                            <option value="internal">Internal</option>
-                            <option value="member">Member</option>
-                            <option value="provider">Provider</option>
-                        </select>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-user"></i> First Name</div>
+                        <div class="info-value">John</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-user"></i> Last Name</div>
+                        <div class="info-value">Doe</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-birthday-cake"></i> Date of Birth</div>
+                        <div class="info-value">07/22/1985</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-id-badge"></i> HICN</div>
+                        <div class="info-value">123-45-6789</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-language"></i> Primary Language</div>
+                        <div class="info-value">English</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-book"></i> Written Language</div>
+                        <div class="info-value">English</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-comments"></i> Spoken Language</div>
+                        <div class="info-value">English</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-map-pin"></i> Location Code</div>
+                        <div class="info-value">LOC-CA-05</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-row one-col">
-                    <div class="form-group">
-                        <label>Required Documents</label>
-                        <div class="multi-select-wrapper">
-                            <div class="multi-select" id="requiredDocsSelect">
-                                <span class="multi-select-placeholder">Required Documents</span>
+            <!-- Contact Information -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-address-book"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Contact Information</h3>
+                            <p>Member contact details and preferences</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-map-marker-alt"></i> Street Address</div>
+                        <div class="info-value">123 Main Street</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-city"></i> City</div>
+                        <div class="info-value">Los Angeles</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-flag"></i> State</div>
+                        <div class="info-value">CA</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-mail-bulk"></i> Zip Code</div>
+                        <div class="info-value">90001</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-phone"></i> Home Phone</div>
+                        <div class="info-value">555-123-4567</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-mobile-alt"></i> Cell Phone</div>
+                        <div class="info-value">555-987-6543</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-envelope"></i> Email</div>
+                        <div class="info-value">john.doe@example.com</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-envelope-open-text"></i> GA Fulfillment Email</div>
+                        <div class="info-value">john.doe@ga.com</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-paper-plane"></i> Preferred Contact Method</div>
+                        <div class="info-value">Email</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-shipping-fast"></i> GA Fulfillment Method</div>
+                        <div class="info-value">Email</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternate Address -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Alternate Address</h3>
+                            <p>Secondary mailing address</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-map-marker-alt"></i> Street Address</div>
+                        <div class="info-value">PO Box 789</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-city"></i> City</div>
+                        <div class="info-value">Pasadena</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-flag"></i> State</div>
+                        <div class="info-value">CA</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-mail-bulk"></i> Zip Code</div>
+                        <div class="info-value">91101</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication Preferences -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Communication Preferences</h3>
+                            <p>Member communication settings and permissions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-envelope-open"></i> Email Permission</div>
+                        <div class="info-value">
+                            <span class="permission-badge permission-yes">
+                                <i class="fas fa-check-circle"></i> Allowed
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-sms"></i> SMS Permission</div>
+                        <div class="info-value">
+                            <span class="permission-badge permission-yes">
+                                <i class="fas fa-check-circle"></i> Allowed
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-phone-volume"></i> Robo Call Opt Out</div>
+                        <div class="info-value">
+                            <span class="permission-badge permission-no">
+                                <i class="fas fa-times-circle"></i> Not Opted Out
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member Status & Indicators -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Member Status & Indicators</h3>
+                            <p>Status and special indicators</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-check-circle"></i> APD Status</div>
+                        <div class="info-value">
+                            <span class="status-badge status-active">
+                                <i class="fas fa-check-circle"></i> Active
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-wheelchair"></i> Special Needs Indicator</div>
+                        <div class="info-value">
+                            <span class="permission-badge permission-yes">
+                                <i class="fas fa-check-circle"></i> Yes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member Representative -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Member Representative</h3>
+                            <p>Authorized representative information</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-file-contract"></i> Document Type</div>
+                        <div class="info-value">POA (Power of Attorney)</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-calendar-check"></i> Document Received Date</div>
+                        <div class="info-value">02/10/2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enrollment Periods -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Member Enrollment Periods</h3>
+                            <p>Coverage periods and benefit information</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="enrollment-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-calendar-day"></i> Effective Date</th>
+                                <th><i class="fas fa-calendar-times"></i> Expiration Date</th>
+                                <th><i class="fas fa-file-contract"></i> Contract ID</th>
+                                <th><i class="fas fa-clipboard-list"></i> Plan Benefit ID</th>
+                                <th><i class="fas fa-users"></i> Group Number</th>
+                                <th><i class="fas fa-building"></i> Group Name</th>
+                                <th><i class="fas fa-shield-alt"></i> Benefit Coverage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01/01/2023</td>
+                                <td>12/31/2023</td>
+                                <td>CON123</td>
+                                <td>PLAN001</td>
+                                <td>GRP789</td>
+                                <td>Health Advantage Group</td>
+                                <td>
+                                    <div class="benefit-coverage">
+                                        <span class="benefit-item benefit-covered">
+                                            <i class="fas fa-check"></i> Medical
+                                        </span>
+                                        <span class="benefit-item benefit-covered">
+                                            <i class="fas fa-check"></i> Dental
+                                        </span>
+                                        <span class="benefit-item benefit-not-covered">
+                                            <i class="fas fa-times"></i> Vision
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01/01/2024</td>
+                                <td>12/31/2025</td>
+                                <td>CON456</td>
+                                <td>PLAN002</td>
+                                <td>GRP456</td>
+                                <td>Senior Wellness Group</td>
+                                <td>
+                                    <div class="benefit-coverage">
+                                        <span class="benefit-item benefit-covered">
+                                            <i class="fas fa-check"></i> Medical
+                                        </span>
+                                        <span class="benefit-item benefit-covered">
+                                            <i class="fas fa-check"></i> Dental
+                                        </span>
+                                        <span class="benefit-item benefit-covered">
+                                            <i class="fas fa-check"></i> Vision
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Risk Scores -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Clinical Risk Scores</h3>
+                            <p>Member risk assessment indicators</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="risk-score-grid">
+                    <div class="risk-score-card">
+                        <div class="risk-score-label">
+                            <i class="fas fa-tooth"></i> Member Caries Risk Score
+                        </div>
+                        <div class="risk-score-value">7.2</div>
+                        <span class="risk-score-status risk-medium">
+                            <i class="fas fa-exclamation-triangle"></i> Medium Risk
+                        </span>
+                    </div>
+                    <div class="risk-score-card">
+                        <div class="risk-score-label">
+                            <i class="fas fa-clinic-medical"></i> Office Caries Risk Score
+                        </div>
+                        <div class="risk-score-value">6.5</div>
+                        <span class="risk-score-status risk-medium">
+                            <i class="fas fa-exclamation-triangle"></i> Medium Risk
+                        </span>
+                    </div>
+                    <div class="risk-score-card">
+                        <div class="risk-score-label">
+                            <i class="fas fa-procedures"></i> Perio Risk Score
+                        </div>
+                        <div class="risk-score-value">5.8</div>
+                        <span class="risk-score-status risk-low">
+                            <i class="fas fa-check-circle"></i> Low Risk
+                        </span>
+                    </div>
+                    <div class="risk-score-card">
+                        <div class="risk-score-label">
+                            <i class="fas fa-video"></i> Teledental Risk Score
+                        </div>
+                        <div class="risk-score-value">6.9</div>
+                        <span class="risk-score-status risk-medium">
+                            <i class="fas fa-exclamation-triangle"></i> Medium Risk
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assigned Providers -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Assigned Providers</h3>
+                            <p>Healthcare providers assigned to this member</p>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-action btn-success">
+                            <i class="fas fa-plus"></i> Add Provider
+                        </button>
+                    </div>
+                </div>
+                <div class="provider-list">
+                    <div class="provider-item">
+                        <div class="provider-info">
+                            <div class="provider-icon">
+                                <i class="fas fa-user-md"></i>
                             </div>
-                            <div class="dropdown-options" id="requiredDocsDropdown">
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="ID Proof" id="req-doc-id">
-                                    <label for="req-doc-id">ID Proof</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Medical Records" id="req-doc-medical">
-                                    <label for="req-doc-medical">Medical Records</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Insurance Card" id="req-doc-insurance">
-                                    <label for="req-doc-insurance">Insurance Card</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Prior Authorization" id="req-doc-auth">
-                                    <label for="req-doc-auth">Prior Authorization</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Claim Form" id="req-doc-claim">
-                                    <label for="req-doc-claim">Claim Form</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Appeal Letter" id="req-doc-appeal">
-                                    <label for="req-doc-appeal">Appeal Letter</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Grievance Form" id="req-doc-grievance">
-                                    <label for="req-doc-grievance">Grievance Form</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Provider Notes" id="req-doc-notes">
-                                    <label for="req-doc-notes">Provider Notes</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Consent Form" id="req-doc-consent">
-                                    <label for="req-doc-consent">Consent Form</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Lab Results" id="req-doc-lab">
-                                    <label for="req-doc-lab">Lab Results</label>
+                            <div>
+                                <div class="provider-name">Dr. Jane Smith</div>
+                                <div class="provider-specialty">
+                                    <i class="fas fa-stethoscope"></i> Primary Care
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-row one-col">
-                    <div class="form-group">
-                        <label>Optional Documents</label>
-                        <div class="multi-select-wrapper">
-                            <div class="multi-select" id="optionalDocsSelect">
-                                <span class="multi-select-placeholder">Optional Documents</span>
-                            </div>
-                            <div class="dropdown-options" id="optionalDocsDropdown">
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Supporting Letters" id="opt-doc-letters">
-                                    <label for="opt-doc-letters">Supporting Letters</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Receipts" id="opt-doc-receipts">
-                                    <label for="opt-doc-receipts">Receipts</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Pharmacy Records" id="opt-doc-pharmacy">
-                                    <label for="opt-doc-pharmacy">Pharmacy Records</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Imaging Reports" id="opt-doc-imaging">
-                                    <label for="opt-doc-imaging">Imaging Reports</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Referral Letter" id="opt-doc-referral">
-                                    <label for="opt-doc-referral">Referral Letter</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Treatment Plan" id="opt-doc-treatment">
-                                    <label for="opt-doc-treatment">Treatment Plan</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Correspondence" id="opt-doc-correspondence">
-                                    <label for="opt-doc-correspondence">Correspondence</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Additional Notes" id="opt-doc-notes">
-                                    <label for="opt-doc-notes">Additional Notes</label>
-                                </div>
-                                <div class="dropdown-option">
-                                    <input type="checkbox" value="Screenshots" id="opt-doc-screenshots">
-                                    <label for="opt-doc-screenshots">Screenshots</label>
-                                </div>
+            <!-- Family Members -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Family Members</h3>
+                            <p>Related family members on file</p>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-action btn-success">
+                            <i class="fas fa-plus"></i> Add Family Member
+                        </button>
+                    </div>
+                </div>
+                <div class="family-list">
+                    <div class="family-item">
+                        <div class="family-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="family-name">Mary Doe</div>
+                            <div class="family-relation">
+                                <i class="fas fa-heart"></i> Spouse
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-cancel">Cancel</button>
-            <button type="submit" class="btn btn-save" form="docRequirementForm">Save</button>
+            <!-- Member Notes -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Member Notes</h3>
+                            <p>Important notes and alerts</p>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-action btn-primary">
+                            <i class="fas fa-edit"></i> Edit Notes
+                        </button>
+                    </div>
+                </div>
+                <div class="notes-box">
+                    <div class="notes-content">
+                        <i class="fas fa-exclamation-circle" style="color: #e74c3c;"></i>
+                        <strong>High-risk member.</strong> Requires monthly follow-up.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Claims Section -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Claims History</h3>
+                            <p>Member claims and utilization</p>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-action btn-primary">
+                            <i class="fas fa-eye"></i> View All Claims
+                        </button>
+                    </div>
+                </div>
+                <div class="notes-box">
+                    <div class="notes-content" style="text-align: center; color: #95a5a6;">
+                        <i class="fas fa-inbox" style="font-size: 32px; margin-bottom: 10px; display: block;"></i>
+                        No claims found for this member
+                    </div>
+                </div>
+            </div>
+
+            <!-- Utilization Counters -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Utilization Counters</h3>
+                            <p>Service utilization tracking</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="notes-box">
+                    <div class="notes-content" style="text-align: center; color: #95a5a6;">
+                        <i class="fas fa-chart-pie" style="font-size: 32px; margin-bottom: 10px; display: block;"></i>
+                        No utilization data available
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member Events -->
+            <div class="detail-section">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <div class="section-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Member Events</h3>
+                            <p>Event history and timeline</p>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-action btn-success">
+                            <i class="fas fa-plus"></i> Add Event
+                        </button>
+                    </div>
+                </div>
+                <div class="notes-box">
+                    <div class="notes-content" style="text-align: center; color: #95a5a6;">
+                        <i class="fas fa-calendar-times" style="font-size: 32px; margin-bottom: 10px; display: block;"></i>
+                        No events recorded for this member
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <script>
-        // Case categories based on case type
-        const caseCategories = {
-            appeal: [
-                { value: 'service_denial', label: 'Service Denial' },
-                { value: 'payment_denial', label: 'Payment Denial' },
-                { value: 'coverage_dispute', label: 'Coverage Dispute' },
-                { value: 'network_issue', label: 'Network Issue' }
-            ],
-            grievance: [
-                { value: 'qoc', label: 'Quality of Care (QOC)' },
-                { value: 'qos', label: 'Quality of Service (QOS)' },
-                { value: 'accessibility', label: 'Accessibility and Availability' },
-                { value: 'clc', label: 'Cultural Linguistic Competency (CLC)' }
-            ]
-        };
-
-        // Case Type change handler
-        document.getElementById('case_type').addEventListener('change', function() {
-            const caseType = this.value;
-            const caseCategorySelect = document.getElementById('case_category');
-            
-            // Clear existing options
-            caseCategorySelect.innerHTML = '<option value="">Case Category</option>';
-            
-            if (caseType && caseCategories[caseType]) {
-                caseCategories[caseType].forEach(category => {
-                    const option = document.createElement('option');
-                    option.value = category.value;
-                    option.textContent = category.label;
-                    caseCategorySelect.appendChild(option);
-                });
-            }
-        });
-
-        // Multi-select functionality
-        function initMultiSelect(selectId, dropdownId) {
-            const select = document.getElementById(selectId);
-            const dropdown = document.getElementById(dropdownId);
-            const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]');
-            
-            select.addEventListener('click', (e) => {
-                e.stopPropagation();
-                dropdown.classList.toggle('show');
-                select.classList.toggle('active');
-                
-                // Close other dropdowns
-                document.querySelectorAll('.dropdown-options').forEach(dd => {
-                    if (dd !== dropdown) dd.classList.remove('show');
-                });
-                document.querySelectorAll('.multi-select').forEach(ms => {
-                    if (ms !== select) ms.classList.remove('active');
-                });
-            });
-
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', () => {
-                    updateMultiSelect(selectId, dropdownId);
-                });
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!select.contains(e.target) && !dropdown.contains(e.target)) {
-                    dropdown.classList.remove('show');
-                    select.classList.remove('active');
-                }
-            });
-        }
-
-        function updateMultiSelect(selectId, dropdownId) {
-            const select = document.getElementById(selectId);
-            const dropdown = document.getElementById(dropdownId);
-            const checkboxes = dropdown.querySelectorAll('input[type="checkbox"]:checked');
-            
-            select.innerHTML = '';
-            
-            if (checkboxes.length === 0) {
-                const placeholder = document.createElement('span');
-                placeholder.className = 'multi-select-placeholder';
-                placeholder.textContent = selectId === 'requiredDocsSelect' ? 'Required Documents' : 'Optional Documents';
-                select.appendChild(placeholder);
-            } else {
-                checkboxes.forEach(checkbox => {
-                    const tag = document.createElement('span');
-                    tag.className = 'tag';
-                    tag.innerHTML = `
-                        ${checkbox.value}
-                        <span class="tag-close" data-value="${checkbox.value}">×</span>
-                    `;
-                    select.appendChild(tag);
-                    
-                    tag.querySelector('.tag-close').addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        checkbox.checked = false;
-                        updateMultiSelect(selectId, dropdownId);
-                    });
-                });
-            }
-        }
-
-        // Initialize multi-selects
-        initMultiSelect('requiredDocsSelect', 'requiredDocsDropdown');
-        initMultiSelect('optionalDocsSelect', 'optionalDocsDropdown');
-
-        // Form submission
-        document.getElementById('docRequirementForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const formData = {
-                case_type: document.getElementById('case_type').value,
-                case_category: document.getElementById('case_category').value,
-                source_type: document.getElementById('source_type').value,
-                entity_type: document.getElementById('entity_type').value,
-                required_documents: Array.from(document.querySelectorAll('#requiredDocsDropdown input:checked')).map(cb => cb.value),
-                optional_documents: Array.from(document.querySelectorAll('#optionalDocsDropdown input:checked')).map(cb => cb.value)
-            };
-            
-            console.log('Document Requirement Configuration:', formData);
-            alert('Configuration saved successfully!');
-        });
-
-        // Cancel button
-        document.querySelector('.btn-cancel').addEventListener('click', () => {
-            if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
-                document.getElementById('docRequirementForm').reset();
-                
-                // Reset multi-selects
-                document.querySelectorAll('.dropdown-options input[type="checkbox"]').forEach(cb => {
-                    cb.checked = false;
-                });
-                updateMultiSelect('requiredDocsSelect', 'requiredDocsDropdown');
-                updateMultiSelect('optionalDocsSelect', 'optionalDocsDropdown');
-            }
-        });
-
-        // Close modal on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelector('.btn-cancel').click();
-            }
-        });
-    </script>
 </body>
 </html>
