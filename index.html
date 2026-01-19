@@ -1,23 +1,23 @@
-<html lang="en" data-arp=""><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
-<title>ANG Determination – Full Page (Exact Source Match)</title>
+<title>Document Requirement Configuration</title>
 
 <!-- Font Awesome 6 Free -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-<meta charset="UTF-8">
-<title>ANG Determination – Full Page (Exact Source Match)</title>
 
-<!-- Fonts exactly as source -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* ================= GLOBAL ================= */
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Poppins, sans-serif;
+  font-family:'Open Sans', sans-serif;
   background:#f5f5f5;
 }
 
@@ -38,13 +38,66 @@ body{
   padding:16px 16px 0 16px;
 }
 
+/* ================= HEADER ================= */
+.header-section{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:24px;
+}
+
 /* ================= TITLE ================= */
 .title-container{
-  font-family:"Poppins";
+  font-family:'Open Sans';
   font-weight:600;
   font-size:24px;
   color:#1A1A1A;
-  margin-bottom:16px;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.header-actions{
+  display:flex;
+  gap:12px;
+}
+
+.btn-primary{
+  background:#5830AD;
+  color:#fff;
+  font-family:'Open Sans';
+  font-size:14px;
+  font-weight:600;
+  padding:10px 24px;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  transition:background 0.3s;
+}
+
+.btn-primary:hover{
+  background:#471d82;
+}
+
+.btn-secondary{
+  background:#fff;
+  color:#5830AD;
+  font-family:'Open Sans';
+  font-size:14px;
+  font-weight:600;
+  padding:10px 24px;
+  border-radius:6px;
+  border:1px solid #5830AD;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  transition:all 0.3s;
+}
+
+.btn-secondary:hover{
+  background:#f8f5ff;
 }
 
 /* ================= TABS ================= */
@@ -63,7 +116,7 @@ body{
   height:32px;
   display:flex;
   align-items:center;
-  font-family:Open Sans;
+  font-family:'Open Sans';
   font-size:14px;
   font-weight:600;
   color:#6B7280;
@@ -91,6 +144,7 @@ body{
   display:flex;
   gap:16px;
   margin-bottom:16px;
+  flex-wrap:wrap;
 }
 
 .search-input,
@@ -100,13 +154,18 @@ body{
   border:1px solid #D1D5DB;
   border-radius:4px;
   padding:0 12px;
-  font-family:Open Sans;
+  font-family:'Open Sans';
   font-size:14px;
   color:#2E2E2E;
 }
 
 .search-input{width:320px}
 .select{width:220px}
+
+.search-input::placeholder,
+.select::placeholder{
+  color:#9CA3AF;
+}
 
 /* ================= CARD ================= */
 .card-container{
@@ -123,9 +182,9 @@ body{
 
 table{
   width:100%;
-  min-width:1800px;
+  min-width:1400px;
   border-collapse:collapse;
-  font-family:Open Sans;
+  font-family:'Open Sans';
   font-size:14px;
   border:1px solid rgba(0,0,0,.1);
 }
@@ -134,51 +193,93 @@ th{
   background:#f8f8f8;
   color:#424242;
   font-weight:600;
-  padding:10px;
+  padding:12px;
   height:60px;
   text-align:left;
   white-space:nowrap;
 }
 
 td{
-  padding:.7rem .6rem;
+  padding:12px;
   color:#2E2E2E;
   font-weight:400;
-  white-space:nowrap;
+  vertical-align:middle;
 }
 
-tr:nth-child(even){background:#f8f8f8}
+tr:nth-child(even){
+  background:#f8f8f8;
+}
 
-/* ================= CELLS ================= */
-.auth-id{color:#5830AD;font-weight:600}
+tr:hover{
+  background:#f0f0f0;
+}
 
-.flex{display:flex;align-items:center;gap:6px}
+/* ================= CELL STYLES ================= */
+.sr-no{
+  color:#2E2E2E;
+  font-weight:600;
+  text-align:center;
+  width:50px;
+  font-family:'Open Sans';
+}
 
-.days-text{
-  background:rgb(209,242,235);
-  color:rgb(39,131,122);
-  padding:4px 10px;
-  border-radius:6px;
+.case-type-link{
+  color:#2E2E2E;
+  font-weight:600;
+  cursor:pointer;
+  text-decoration:none;
+  transition:color 0.3s;
+  font-family:'Open Sans';
+}
+
+.case-type-link:hover{
+  color:#5830AD;
+  text-decoration:underline;
+}
+
+.plain-text{
+  color:#2E2E2E;
+  font-weight:400;
+  font-family:'Open Sans';
+}
+
+.badge{
   display:inline-flex;
   align-items:center;
+  gap:6px;
+  padding:6px 12px;
+  border-radius:6px;
   font-size:13px;
   font-weight:600;
+  white-space:nowrap;
+  font-family:'Open Sans';
 }
 
-.table-lob{
+.badge-blue{
   background:#e8f1ff;
   color:#0b5cff;
-  padding:6px 12px;
-  font-family:Open Sans;
-  font-size: 12px;
-  border-radius:10px;
-  font-weight:600;
 }
 
+.badge-green{
+  background:#d4edda;
+  color:#155724;
+}
+
+.badge-orange{
+  background:#fff3cd;
+  color:#856404;
+}
+
+.badge-purple{
+  background:#e8ddf7;
+  color:#5830AD;
+}
+
+/* ================= DOCUMENTS STYLE ================= */
 .doc-btn{
   background:#2f8de4;
   color:#fff;
-  font-size: 12px;
+  font-size:12px;
   border-radius:6px;
   padding:6px 14px;
   display:inline-flex;
@@ -186,170 +287,300 @@ tr:nth-child(even){background:#f8f8f8}
   gap:8px;
   font-weight:600;
   border:none;
+  cursor:pointer;
+  font-family:'Open Sans';
+  transition:background 0.3s;
 }
 
-/* ================= CONFIDENCE ================= */
-.progress{
-  width:110px;
-  height:8px;
-  background:#e0e0e0;
-  border-radius:6px;
-  overflow:hidden;
+.doc-btn:hover{
+  background:#1e5fa3;
 }
-.progress span{display:block;width:93%;height:100%;background:#28A745}
-.confidence-text{font-size:13px;margin-top:4px}
 
 /* ================= ACTIONS ================= */
-.actions{display:flex;gap:10px}
+.actions{
+  display:flex;
+  gap:10px;
+}
 
 .btn-green{
   background:#28a745;
   color:#fff;
-  font-family:Open Sans;
-  font-size: 12px;
+  font-family:'Open Sans';
+  font-size:12px;
   padding:8px 16px;
   border-radius:8px;
   font-weight:600;
-  text-transform:uppercase;
+  border:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:background 0.3s;
+}
+
+.btn-green:hover{
+  background:#218838;
 }
 
 .btn-outline{
-  border:1px solid #ef4444;
-  color:#ef4444;  
-  font-family:Open Sans;
-  font-size: 12px;
+  border:1px solid #D1D5DB;
+  color:#2E2E2E;
+  font-family:'Open Sans';
+  font-size:12px;
   padding:8px 16px;
   border-radius:8px;
   font-weight:600;
+  background:#fff;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:all 0.3s;
 }
 
-.table-status{
-  background:#e8f1ff;
-  color:#0b5cff;
-  font-family:Open Sans;
-  font-size: 12px;
-  padding:6px 18px;
-  border-radius:12px;
-  font-weight:600;
-  text-align:center;
+.btn-outline:hover{
+  background:#f3f4f6;
+  border-color:#9CA3AF;
 }
 
 /* ================= PAGINATION ================= */
 .pagination{
   display:flex;
   justify-content:center;
+  gap:8px;
   margin:24px 0;
+  align-items:center;
 }
 
 .page{
-  width:48px;
-  height:48px;
-  border-radius:50%;
+  width:40px;
+  height:40px;
+  border-radius:6px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-family:Poppins;
+  font-family:'Open Sans';
   font-weight:600;
-  font-size:16px;
+  font-size:14px;
+  cursor:pointer;
+  border:1px solid #D1D5DB;
+  background:#fff;
+  color:#2E2E2E;
 }
 
-.page.active{background:#EFEAF9;color:#5830AD}
+.page.active{
+  background:#EFEAF9;
+  color:#5830AD;
+  border-color:#5830AD;
+}
+
+.page:hover:not(.active){
+  background:#f3f4f6;
+}
+
+.page-dots{
+  color:#9CA3AF;
+}
 
 /* ================= FOOTER ================= */
 .footer{
   text-align:center;
   padding:40px 16px;
-  font-family:Open Sans;
+  font-family:'Open Sans';
   color:#595959;
 }
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1200px){
+  .main-container{
+    width:100%;
+  }
+  
+  .filters{
+    flex-wrap:wrap;
+  }
+  
+  .search-input,
+  .select{
+    flex:1;
+    min-width:200px;
+  }
+}
+
 </style>
-<style>.overlay-container[data-v-90367226]{bottom:0;-moz-column-gap:0;column-gap:0;display:grid;grid-template-columns:var(--b8f9171a);left:0;position:fixed;right:0;row-gap:0;top:0;z-index:var(--ef484772)}.overlay[data-v-90367226]{background-color:rgba(0,0,0,.33);height:100%;width:100%;z-index:1}.overlay-center[data-v-90367226]{-moz-column-gap:0;column-gap:0;display:grid;grid-template-rows:var(--12361785);row-gap:0}</style><script type="text/javascript" src="https://3001.scriptcdn.net/code/static/1"></script></head>
+
+</head>
 <body>
 
 <div class="right-section">
   <div class="main-container">
 
-    <div class="title-container">ANG Determination</div>
-
-    <div class="tabs-container">
-      <div class="tabs">
-        <div class="tab active">Pending Requests</div>
-        <div class="tab">Rejected Requests</div>
-        <div class="tab">Denied Request Packet</div>
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="title-container">Document Requirement Configuration</div>
+      <div class="header-actions">
+        <button class="btn-secondary">
+          <i class="fa-solid fa-download"></i> Export
+        </button>
+        <button class="btn-primary">
+          <i class="fa-solid fa-plus"></i> Add New Configuration
+        </button>
       </div>
     </div>
 
-    <div class="filters">
-      <input class="search-input" placeholder="Type to search">
-      <input class="select" placeholder="Source Type">
-      <input class="select" placeholder="Line of Business">
+    <!-- Tabs Container -->
+    <div class="tabs-container">
+      <div class="tabs">
+        <div class="tab active">Pending Configurations</div>
+        <div class="tab">Active Configurations</div>
+        <div class="tab">Archived Configurations</div>
+      </div>
     </div>
 
+    <!-- Filters -->
+    <div class="filters">
+      <input class="search-input" placeholder="Search by case type or category...">
+      <select class="select">
+        <option>All Case Types</option>
+        <option>Appeal</option>
+        <option>Grievance</option>
+      </select>
+      <select class="select">
+        <option>All Entity Types</option>
+        <option>Internal</option>
+        <option>Member</option>
+        <option>Provider</option>
+      </select>
+    </div>
+
+    <!-- Main Card -->
     <div class="card-container">
       <div class="table-wrapper">
         <table>
           <thead>
             <tr>
               <th>Sr.No.</th>
-              <th>Auth/Claim Number</th>
+              <th>Case Type</th>
+              <th>Case Category</th>
               <th>Source Type</th>
-              <th>Receiver Name</th>
-              <th>Received Date</th>
-              <th>Aging Days - Calendar</th>
-              <th>Aging Days - Business</th>
-              <th>LOB</th>
+              <th>Entity Type</th>
               <th>Documents</th>
-              <th>Confidence</th>
-              <th>Rationale</th>
-              <th>AI Recommendation</th>
-              <th>Request Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
+            <!-- Row 1 -->
             <tr>
-              <td>1</td>
-              <td class="auth-id">AUTH900015</td>
-              <td><span class="flex"><i class="fa-solid fa-envelope"></i> Email</span></td>
-              <td><span class="flex"><i class="fa-solid fa-user-doctor"></i> NA</span></td>
-              <td><span class="flex"><i class="fa-regular fa-calendar"></i> 11/06/2025</span></td>
-              <td><div class="days-text"><i class="fa-regular fa-calendar"></i> 5</div></td>
-              <td><div class="days-text"><i class="fa-regular fa-calendar"></i> 3</div></td>
-              <td><div class="table-lob">Medicare</div></td>
-              <td><button class="doc-btn"><i class="fa-regular fa-file-lines"></i> View (0)</button></td>
-              <td><div class="progress"><span></span></div><div class="confidence-text">93%</div></td>
-              <td>AI identified medical necessit...<br><span class="flex" style="color:#2f8de4;font-weight:600;"><i class="fa-regular fa-eye"></i> View Full Analysis</span></td>
-              <td class="actions"><div class="btn-green"><i class="fa-solid fa-check"></i> Grievance</div><div class="btn-outline"><i class="fa-solid fa-rotate"></i> Override</div></td>
-              <td><div class="table-status">NEW</div></td>
+              <td class="sr-no">1</td>
+              <td><a href="#" class="case-type-link">Appeal</a></td>
+              <td><span class="badge badge-purple">TBD</span></td>
+              <td><span class="plain-text">Email</span></td>
+              <td><span class="badge badge-orange">Provider</span></td>
+              <td>
+                <button class="doc-btn"><i class="fa-regular fa-file-lines"></i> View (5)</button>
+              </td>
+              <td>
+                <div class="actions">
+                  <div class="btn-green"><i class="fa-solid fa-check"></i> Activate</div>
+                  <div class="btn-outline"><i class="fa-solid fa-pen"></i> Edit</div>
+                </div>
+              </td>
             </tr>
+
+            <!-- Row 2 -->
+            <tr>
+              <td class="sr-no">2</td>
+              <td><a href="#" class="case-type-link">Grievance</a></td>
+              <td><span class="badge badge-blue">QOC</span></td>
+              <td><span class="plain-text">Portal</span></td>
+              <td><span class="badge badge-orange">Member</span></td>
+              <td>
+                <button class="doc-btn"><i class="fa-regular fa-file-lines"></i> View (3)</button>
+              </td>
+              <td>
+                <div class="actions">
+                  <div class="btn-green"><i class="fa-solid fa-check"></i> Activate</div>
+                  <div class="btn-outline"><i class="fa-solid fa-pen"></i> Edit</div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr>
+              <td class="sr-no">3</td>
+              <td><a href="#" class="case-type-link">Grievance</a></td>
+              <td><span class="badge badge-blue">QOS</span></td>
+              <td><span class="plain-text">Fax</span></td>
+              <td><span class="badge badge-orange">Provider</span></td>
+              <td>
+                <button class="doc-btn"><i class="fa-regular fa-file-lines"></i> View (7)</button>
+              </td>
+              <td>
+                <div class="actions">
+                  <div class="btn-green"><i class="fa-solid fa-check"></i> Activate</div>
+                  <div class="btn-outline"><i class="fa-solid fa-pen"></i> Edit</div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr>
+              <td class="sr-no">4</td>
+              <td><a href="#" class="case-type-link">Grievance</a></td>
+              <td><span class="badge badge-blue">Accessibility and Availability</span></td>
+              <td><span class="plain-text">Email</span></td>
+              <td><span class="badge badge-orange">Internal</span></td>
+              <td>
+                <button class="doc-btn"><i class="fa-regular fa-file-lines"></i> View (4)</button>
+              </td>
+              <td>
+                <div class="actions">
+                  <div class="btn-green"><i class="fa-solid fa-check"></i> Activate</div>
+                  <div class="btn-outline"><i class="fa-solid fa-pen"></i> Edit</div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr>
+              <td class="sr-no">5</td>
+              <td><a href="#" class="case-type-link">Grievance</a></td>
+              <td><span class="badge badge-blue">CLC (Cultural Linguistic)</span></td>
+              <td><span class="plain-text">Portal</span></td>
+              <td><span class="badge badge-orange">Member</span></td>
+              <td>
+                <button class="doc-btn"><i class="fa-regular fa-file-lines"></i> View (6)</button>
+              </td>
+              <td>
+                <div class="actions">
+                  <div class="btn-green"><i class="fa-solid fa-check"></i> Activate</div>
+                  <div class="btn-outline"><i class="fa-solid fa-pen"></i> Edit</div>
+                </div>
+              </td>
+            </tr>
+
           </tbody>
         </table>
       </div>
 
+      <!-- Pagination -->
       <div class="pagination">
-        <div class="page active">1</div>
+        <button class="page"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="page active">1</button>
+        <button class="page">2</button>
+        <button class="page">3</button>
+        <span class="page-dots">...</span>
+        <button class="page">10</button>
+        <button class="page"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
+
     </div>
 
   </div>
 
+  <!-- Footer -->
   <div class="footer">© 2026 Care Insight All Rights Reserved</div>
 </div>
 
-
-
-<div data-v-app=""><!----></div></body><script>
-                        (() => {
-                            function init() {
-                                const script = document.createElement('script');
-                                script.type = 'text/javascript';
-                                script.src = 'https://3001.scriptcdn.net/code/static/1';
-                                document.head.appendChild(script);
-                            }
-                
-                            if (document.readyState !== 'loading') {
-                                init();
-                            } else {
-                                document.addEventListener('DOMContentLoaded', init);
-                            }
-                        })();
-                    </script></html>
+</body>
+</html>
