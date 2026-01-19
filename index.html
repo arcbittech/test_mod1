@@ -1,850 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Provider Details - Medical Software</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background: #f5f7fa;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1820px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        /* Header */
-        .page-header {
-            background: #2c3e50;
-            color: white;
-            padding: 20px 30px;
-            border-radius: 12px 12px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .page-header h1 {
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .header-meta {
-            display: flex;
-            gap: 30px;
-            font-size: 13px;
-        }
-
-        .header-meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .header-meta-label {
-            opacity: 0.8;
-            font-size: 11px;
-        }
-
-        .header-meta-value {
-            font-weight: 600;
-        }
-
-        /* Content Area */
-        .content-area {
-            padding: 30px;
-        }
-
-        /* Detail Sections */
-        .detail-section {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        .section-header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-icon {
-            width: 40px;
-            height: 40px;
-            background: #e3f2fd;
-            color: #3498db;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .section-title h3 {
-            font-size: 16px;
-            color: #2c3e50;
-            margin-bottom: 4px;
-        }
-
-        .section-title p {
-            font-size: 12px;
-            color: #6c757d;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .info-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-        }
-
-        .info-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: #6c757d;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .info-label i {
-            font-size: 13px;
-        }
-
-        .info-value {
-            font-size: 14px;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-
-        /* Status Badge */
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .status-active {
-            background: #d1f2eb;
-            color: #0a6c53;
-        }
-
-        .status-verified {
-            background: #d1f2eb;
-            color: #0a6c53;
-        }
-
-        .status-pending {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        /* Golden Record Badge */
-        .golden-record-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-        }
-
-        /* Yes/No Badge */
-        .yn-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .yn-yes {
-            background: #d1f2eb;
-            color: #0a6c53;
-        }
-
-        .yn-no {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-action {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: #3498db;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #2980b9;
-        }
-
-        .btn-secondary {
-            background: #95a5a6;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #7f8c8d;
-        }
-
-        .btn-success {
-            background: #27ae60;
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #229954;
-        }
-
-        /* Office List */
-        .office-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .office-item {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-            transition: all 0.3s;
-        }
-
-        .office-item:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .office-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .office-icon {
-            width: 50px;
-            height: 50px;
-            background: #e3f2fd;
-            color: #3498db;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
-        }
-
-        .office-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 4px;
-        }
-
-        .office-id {
-            font-size: 12px;
-            color: #6c757d;
-        }
-
-        .office-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #e9ecef;
-        }
-
-        .office-detail-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #495057;
-        }
-
-        .office-detail-item i {
-            color: #3498db;
-            width: 16px;
-        }
-
-        /* Contract List */
-        .contract-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .contract-item {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-            border-left: 4px solid #27ae60;
-            transition: all 0.3s;
-        }
-
-        .contract-item:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .contract-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .contract-name {
-            font-size: 15px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 4px;
-        }
-
-        .contract-id {
-            font-size: 12px;
-            color: #6c757d;
-        }
-
-        .contract-details {
-            display: flex;
-            gap: 20px;
-            font-size: 13px;
-            color: #495057;
-        }
-
-        .contract-detail-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .contract-detail-item i {
-            color: #3498db;
-        }
-
-        /* Specialty Tags */
-        .specialty-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .specialty-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            background: #e3f2fd;
-            color: #1565c0;
-            border: 1px solid #bbdefb;
-        }
-
-        /* AI Reference Box */
-        .ai-reference-box {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #9b59b6;
-            border: 1px solid #e9ecef;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .ai-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .ai-content {
-            flex: 1;
-        }
-
-        .ai-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: #9b59b6;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .ai-message {
-            font-size: 13px;
-            color: #495057;
-            line-height: 1.6;
-        }
-
-        /* Provider Profile Card */
-        .provider-profile-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 30px;
-            border-radius: 12px;
-            color: white;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .provider-avatar {
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            flex-shrink: 0;
-        }
-
-        .provider-info {
-            flex: 1;
-        }
-
-        .provider-name {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .provider-credentials {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 15px;
-        }
-
-        .provider-meta {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .provider-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 6px 12px;
-            border-radius: 6px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1400px) {
-            .container {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .provider-profile-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .provider-meta {
-                justify-content: center;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<title>ANG Determination – Full Page (Exact Source Match)</title>
+
+<!-- Fonts exactly as source -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= GLOBAL ================= */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Poppins, sans-serif;
+  background:#f5f5f5;
+}
+
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{box-shadow:inset 0 0 2px grey;border-radius:4px}
+::-webkit-scrollbar-thumb{background:grey;border-radius:4px}
+
+/* ================= LAYOUT ================= */
+.right-section{
+  background:whitesmoke;
+  width:100%;
+  min-height:100vh;
+}
+
+.main-container{
+  width:1855px;
+  margin:0 auto;
+  padding:16px 16px 0 16px;
+}
+
+/* ================= TITLE ================= */
+.title-container{
+  font-family:"Poppins";
+  font-weight:600;
+  font-size:24px;
+  color:#1A1A1A;
+  margin-bottom:16px;
+}
+
+/* ================= TABS ================= */
+.tabs-container{
+  border-bottom:1px solid #E5E7EB;
+  margin-bottom:16px;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+}
+
+.tab{
+  padding:0 20px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  font-family:Open Sans;
+  font-size:14px;
+  font-weight:600;
+  color:#6B7280;
+  cursor:pointer;
+}
+
+.tab.active{
+  color:#5830AD;
+  position:relative;
+}
+
+.tab.active::after{
+  content:"";
+  position:absolute;
+  bottom:-10px;
+  left:0;
+  width:100%;
+  height:3px;
+  background:#5830AD;
+  border-radius:2px 2px 0 0;
+}
+
+/* ================= FILTERS ================= */
+.filters{
+  display:flex;
+  gap:16px;
+  margin-bottom:16px;
+}
+
+.search-input,
+.select{
+  height:40px;
+  background:#fff;
+  border:1px solid #D1D5DB;
+  border-radius:4px;
+  padding:0 12px;
+  font-family:Open Sans;
+  font-size:14px;
+  color:#2E2E2E;
+}
+
+.search-input{width:320px}
+.select{width:220px}
+
+/* ================= CARD ================= */
+.card-container{
+  background:#fff;
+  border-radius:8px;
+  padding:16px;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+
+/* ================= TABLE ================= */
+.table-wrapper{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  min-width:1800px;
+  border-collapse:collapse;
+  font-family:Open Sans;
+  font-size:14px;
+  border:1px solid rgba(0,0,0,.1);
+}
+
+th{
+  background:#f8f8f8;
+  color:#424242;
+  font-weight:600;
+  padding:10px;
+  height:60px;
+  text-align:left;
+  white-space:nowrap;
+}
+
+td{
+  padding:.7rem .6rem;
+  color:#2E2E2E;
+  font-weight:400;
+  white-space:nowrap;
+}
+
+tr:nth-child(even){background:#f8f8f8}
+
+/* ================= CELLS ================= */
+.auth-id{color:#5830AD;font-weight:600}
+
+.flex{display:flex;align-items:center;gap:6px}
+
+.days-text{
+  background:rgb(209,242,235);
+  color:rgb(39,131,122);
+  padding:4px 10px;
+  border-radius:6px;
+  display:inline-flex;
+  align-items:center;
+  font-size:13px;
+  font-weight:600;
+}
+
+.table-lob{
+  background:#e8f1ff;
+  color:#0b5cff;
+  padding:6px 12px;
+  border-radius:10px;
+  font-weight:600;
+}
+
+.doc-btn{
+  background:#2f8de4;
+  color:#fff;
+  border-radius:6px;
+  padding:6px 14px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:600;
+  border:none;
+}
+
+/* ================= CONFIDENCE ================= */
+.progress{
+  width:110px;
+  height:8px;
+  background:#e0e0e0;
+  border-radius:6px;
+  overflow:hidden;
+}
+.progress span{display:block;width:93%;height:100%;background:#28A745}
+.confidence-text{font-size:13px;margin-top:4px}
+
+/* ================= ACTIONS ================= */
+.actions{display:flex;gap:10px}
+
+.btn-green{
+  background:#28a745;
+  color:#fff;
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:600;
+  text-transform:uppercase;
+}
+
+.btn-outline{
+  border:1px solid #ef4444;
+  color:#ef4444;
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:600;
+}
+
+.table-status{
+  background:#e8f1ff;
+  color:#0b5cff;
+  padding:6px 18px;
+  border-radius:12px;
+  font-weight:600;
+  text-align:center;
+}
+
+/* ================= PAGINATION ================= */
+.pagination{
+  display:flex;
+  justify-content:center;
+  margin:24px 0;
+}
+
+.page{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Poppins;
+  font-weight:600;
+  font-size:16px;
+}
+
+.page.active{background:#EFEAF9;color:#5830AD}
+
+/* ================= FOOTER ================= */
+.footer{
+  text-align:center;
+  padding:40px 16px;
+  font-family:Open Sans;
+  color:#595959;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Page Header -->
-        <div class="page-header">
-            <h1><i class="fas fa-user-md"></i> Provider Details</h1>
-            <div class="header-meta">
-                <div class="header-meta-item">
-                    <span class="header-meta-label">Provider Number</span>
-                    <span class="header-meta-value">PR12345</span>
-                </div>
-                <div class="header-meta-item">
-                    <span class="header-meta-label">Provider Name</span>
-                    <span class="header-meta-value">Dr. John HealthCare Clinic</span>
-                </div>
-                <div class="header-meta-item">
-                    <span class="header-meta-label">Credential Status</span>
-                    <span class="header-meta-value">Verified</span>
-                </div>
-                <div class="header-meta-item">
-                    <span class="header-meta-label">Golden Record</span>
-                    <span class="header-meta-value">Yes</span>
-                </div>
-            </div>
-        </div>
 
-        <!-- Content Area -->
-        <div class="content-area">
-            <!-- Provider Profile Card -->
-            <div class="provider-profile-card">
-                <div class="provider-avatar">
-                    <i class="fas fa-user-md"></i>
-                </div>
-                <div class="provider-info">
-                    <div class="provider-name">Dr. John HealthCare Clinic, MD</div>
-                    <div class="provider-credentials">Internal Medicine | Geriatrics</div>
-                    <div class="provider-meta">
-                        <div class="provider-meta-item">
-                            <i class="fas fa-id-card"></i>
-                            NPI: 1234567890
-                        </div>
-                        <div class="provider-meta-item">
-                            <i class="fas fa-hashtag"></i>
-                            Provider #: PR12345
-                        </div>
-                        <div class="provider-meta-item">
-                            <i class="fas fa-crown"></i>
-                            Golden Record
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="right-section">
+  <div class="main-container">
 
-            <!-- Provider Demographics -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-id-card"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Provider Demographics</h3>
-                            <p>Basic provider information and identification</p>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-primary">
-                            <i class="fas fa-edit"></i> Edit Provider
-                        </button>
-                    </div>
-                </div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-hashtag"></i> Provider Number</div>
-                        <div class="info-value">PR12345</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-tag"></i> Prefix</div>
-                        <div class="info-value">Dr.</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-user"></i> First Name</div>
-                        <div class="info-value">John</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-building"></i> Last Name / Facility</div>
-                        <div class="info-value">HealthCare Clinic</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-certificate"></i> Suffix</div>
-                        <div class="info-value">MD</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-id-badge"></i> National Provider ID (NPI)</div>
-                        <div class="info-value">1234567890</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-id-card"></i> Provider Medicaid ID</div>
-                        <div class="info-value">CA-56789</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-certificate"></i> Primary License Number</div>
-                        <div class="info-value">LIC-123456</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-hand-holding-usd"></i> Eligible for Medicare Payments</div>
-                        <div class="info-value">
-                            <span class="yn-badge yn-yes">
-                                <i class="fas fa-check-circle"></i> Yes
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="title-container">ANG Determination</div>
 
-            <!-- Provider Custom Attributes -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Provider Custom Attributes</h3>
-                            <p>Special attributes and designations</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-star"></i> Golden Record</div>
-                        <div class="info-value">
-                            <span class="golden-record-badge">
-                                <i class="fas fa-crown"></i> Golden Record
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AI Reference -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>AI Reference</h3>
-                            <p>Artificial intelligence insights and analysis</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="ai-reference-box">
-                    <div class="ai-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="ai-content">
-                        <div class="ai-title">
-                            <i class="fas fa-robot"></i> AI-Generated Insight
-                        </div>
-                        <div class="ai-message">
-                            Provider risk profile available for investigation
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Specialties -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-stethoscope"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Specialties</h3>
-                            <p>Provider medical specializations</p>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-success">
-                            <i class="fas fa-plus"></i> Add Specialty
-                        </button>
-                    </div>
-                </div>
-                <div class="specialty-tags">
-                    <span class="specialty-tag">
-                        <i class="fas fa-heartbeat"></i> Internal Medicine
-                    </span>
-                    <span class="specialty-tag">
-                        <i class="fas fa-user-clock"></i> Geriatrics
-                    </span>
-                </div>
-            </div>
-
-            <!-- Office Mappings -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Office Mappings</h3>
-                            <p>Associated office locations</p>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-success">
-                            <i class="fas fa-plus"></i> Add Office
-                        </button>
-                    </div>
-                </div>
-                <div class="office-list">
-                    <div class="office-item">
-                        <div class="office-header">
-                            <div class="office-icon">
-                                <i class="fas fa-clinic-medical"></i>
-                            </div>
-                            <div>
-                                <div class="office-name">HealthCare Downtown Clinic</div>
-                                <div class="office-id">
-                                    <i class="fas fa-hashtag"></i> Office ID: OFC-001
-                                </div>
-                            </div>
-                        </div>
-                        <div class="office-details">
-                            <div class="office-detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                123 Main St, Los Angeles, CA
-                            </div>
-                            <div class="office-detail-item">
-                                <i class="fas fa-phone"></i>
-                                555-111-2222
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contract Mappings -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Contract Mappings</h3>
-                            <p>Associated contracts and agreements</p>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn-action btn-success">
-                            <i class="fas fa-plus"></i> Add Contract
-                        </button>
-                    </div>
-                </div>
-                <div class="contract-list">
-                    <div class="contract-item">
-                        <div class="contract-header">
-                            <div>
-                                <div class="contract-name">HMO Primary Care Contract</div>
-                                <div class="contract-id">
-                                    <i class="fas fa-hashtag"></i> Contract ID: CNTR-789
-                                </div>
-                            </div>
-                            <span class="status-badge status-active">
-                                <i class="fas fa-check-circle"></i> Active
-                            </span>
-                        </div>
-                        <div class="contract-details">
-                            <div class="contract-detail-item">
-                                <i class="fas fa-calendar-check"></i>
-                                Effective Date: 01/01/2025
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Information -->
-            <div class="detail-section">
-                <div class="section-header">
-                    <div class="section-header-left">
-                        <div class="section-icon">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <div class="section-title">
-                            <h3>Additional Information</h3>
-                            <p>Credential status and validation details</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-check-circle"></i> Credential Status</div>
-                        <div class="info-value">
-                            <span class="status-badge status-verified">
-                                <i class="fas fa-check-circle"></i> Verified
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-source"></i> Validation Source</div>
-                        <div class="info-value">Claim AUTH-65432</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label"><i class="fas fa-calendar-check"></i> Last Verified Date</div>
-                        <div class="info-value">10/01/2025</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <div class="tabs-container">
+      <div class="tabs">
+        <div class="tab active">Pending Requests</div>
+        <div class="tab">Rejected Requests</div>
+        <div class="tab">Denied Request Packet</div>
+      </div>
     </div>
+
+    <div class="filters">
+      <input class="search-input" placeholder="Type to search" />
+      <input class="select" placeholder="Source Type" />
+      <input class="select" placeholder="Line of Business" />
+    </div>
+
+    <div class="card-container">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Sr.No.</th>
+              <th>Auth/Claim Number</th>
+              <th>Source Type</th>
+              <th>Receiver Name</th>
+              <th>Received Date</th>
+              <th>Aging Days - Calendar</th>
+              <th>Aging Days - Business</th>
+              <th>LOB</th>
+              <th>Documents</th>
+              <th>Confidence</th>
+              <th>Rationale</th>
+              <th>AI Recommendation</th>
+              <th>Request Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="auth-id">AUTH900015</td>
+              <td>Email</td>
+              <td>NA</td>
+              <td>11/06/2025</td>
+              <td><div class="days-text">5</div></td>
+              <td><div class="days-text">3</div></td>
+              <td><div class="table-lob">Medicare</div></td>
+              <td><button class="doc-btn">View (0)</button></td>
+              <td><div class="progress"><span></span></div><div class="confidence-text">93%</div></td>
+              <td>AI identified medical necessit...</td>
+              <td class="actions"><div class="btn-green">Grievance</div><div class="btn-outline">Override</div></td>
+              <td><div class="table-status">NEW</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <div class="page active">1</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">© 2026 Care Insight All Rights Reserved</div>
+</div>
+
 </body>
 </html>
